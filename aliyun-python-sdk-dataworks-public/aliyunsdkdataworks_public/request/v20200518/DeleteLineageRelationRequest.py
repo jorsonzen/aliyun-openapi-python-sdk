@@ -41,6 +41,11 @@ class DeleteLineageRelationRequest(RpcRequest):
 
 	def set_DestEntityQualifiedName(self, DestEntityQualifiedName):  # String
 		self.add_query_param('DestEntityQualifiedName', DestEntityQualifiedName)
+	def get_RelationshipType(self): # String
+		return self.get_query_params().get('RelationshipType')
+
+	def set_RelationshipType(self, RelationshipType):  # String
+		self.add_query_param('RelationshipType', RelationshipType)
 	def get_RelationshipGuid(self): # String
 		return self.get_query_params().get('RelationshipGuid')
 

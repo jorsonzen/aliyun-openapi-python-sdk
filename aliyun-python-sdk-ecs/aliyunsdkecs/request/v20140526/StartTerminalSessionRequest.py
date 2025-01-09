@@ -72,3 +72,8 @@ class StartTerminalSessionRequest(RpcRequest):
 
 	def set_PortNumber(self, PortNumber):  # Integer
 		self.add_query_param('PortNumber', PortNumber)
+	def get_Username(self): # String
+		return self.get_query_params().get('Username')
+
+	def set_Username(self, Username):  # String
+		self.add_query_param('Username', Username)

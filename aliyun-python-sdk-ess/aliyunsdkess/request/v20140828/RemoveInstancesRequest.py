@@ -36,6 +36,11 @@ class RemoveInstancesRequest(RpcRequest):
 
 	def set_ResourceOwnerId(self, ResourceOwnerId):  # Long
 		self.add_query_param('ResourceOwnerId', ResourceOwnerId)
+	def get_ClientToken(self): # String
+		return self.get_query_params().get('ClientToken')
+
+	def set_ClientToken(self, ClientToken):  # String
+		self.add_query_param('ClientToken', ClientToken)
 	def get_ScalingGroupId(self): # String
 		return self.get_query_params().get('ScalingGroupId')
 
@@ -46,6 +51,16 @@ class RemoveInstancesRequest(RpcRequest):
 
 	def set_DecreaseDesiredCapacity(self, DecreaseDesiredCapacity):  # Boolean
 		self.add_query_param('DecreaseDesiredCapacity', DecreaseDesiredCapacity)
+	def get_IgnoreInvalidInstance(self): # Boolean
+		return self.get_query_params().get('IgnoreInvalidInstance')
+
+	def set_IgnoreInvalidInstance(self, IgnoreInvalidInstance):  # Boolean
+		self.add_query_param('IgnoreInvalidInstance', IgnoreInvalidInstance)
+	def get_StopInstanceTimeout(self): # Integer
+		return self.get_query_params().get('StopInstanceTimeout')
+
+	def set_StopInstanceTimeout(self, StopInstanceTimeout):  # Integer
+		self.add_query_param('StopInstanceTimeout', StopInstanceTimeout)
 	def get_RemovePolicy(self): # String
 		return self.get_query_params().get('RemovePolicy')
 

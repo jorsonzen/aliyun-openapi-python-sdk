@@ -130,6 +130,11 @@ class CreateDBClusterRequest(RpcRequest):
 
 	def set_DBMinorVersion(self, DBMinorVersion):  # String
 		self.add_query_param('DBMinorVersion', DBMinorVersion)
+	def get_ProvisionedIops(self): # Long
+		return self.get_query_params().get('ProvisionedIops')
+
+	def set_ProvisionedIops(self, ProvisionedIops):  # Long
+		self.add_query_param('ProvisionedIops', ProvisionedIops)
 	def get_AutoRenew(self): # Boolean
 		return self.get_query_params().get('AutoRenew')
 
@@ -240,6 +245,16 @@ class CreateDBClusterRequest(RpcRequest):
 
 	def set_UsedTime(self, UsedTime):  # String
 		self.add_query_param('UsedTime', UsedTime)
+	def get_BurstingEnabled(self): # String
+		return self.get_query_params().get('BurstingEnabled')
+
+	def set_BurstingEnabled(self, BurstingEnabled):  # String
+		self.add_query_param('BurstingEnabled', BurstingEnabled)
+	def get_TargetMinorVersion(self): # String
+		return self.get_query_params().get('TargetMinorVersion')
+
+	def set_TargetMinorVersion(self, TargetMinorVersion):  # String
+		self.add_query_param('TargetMinorVersion', TargetMinorVersion)
 	def get_DBNodeNum(self): # Integer
 		return self.get_query_params().get('DBNodeNum')
 

@@ -25,6 +25,11 @@ class GetVccRequest(RpcRequest):
 		RpcRequest.__init__(self, 'eflo', '2022-05-30', 'GetVcc','eflo')
 		self.set_method('POST')
 
+	def get_ClientToken(self): # String
+		return self.get_body_params().get('ClientToken')
+
+	def set_ClientToken(self, ClientToken):  # String
+		self.add_body_params('ClientToken', ClientToken)
 	def get_PageNumber(self): # Integer
 		return self.get_body_params().get('PageNumber')
 
