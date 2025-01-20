@@ -203,6 +203,20 @@ class RunInstancesRequest(RpcRequest):
 
 	def set_PasswordInherit(self, PasswordInherit):  # Boolean
 		self.add_query_param('PasswordInherit', PasswordInherit)
+	def get_PrivateDnsNameOptions(self): # Struct
+		return self.get_query_params().get('PrivateDnsNameOptions')
+
+	def set_PrivateDnsNameOptions(self, PrivateDnsNameOptions):  # Struct
+		if PrivateDnsNameOptions.get('EnableInstanceIdDnsARecord') is not None:
+			self.add_query_param('PrivateDnsNameOptions.EnableInstanceIdDnsARecord', PrivateDnsNameOptions.get('EnableInstanceIdDnsARecord'))
+		if PrivateDnsNameOptions.get('EnableInstanceIdDnsAAAARecord') is not None:
+			self.add_query_param('PrivateDnsNameOptions.EnableInstanceIdDnsAAAARecord', PrivateDnsNameOptions.get('EnableInstanceIdDnsAAAARecord'))
+		if PrivateDnsNameOptions.get('EnableIpDnsARecord') is not None:
+			self.add_query_param('PrivateDnsNameOptions.EnableIpDnsARecord', PrivateDnsNameOptions.get('EnableIpDnsARecord'))
+		if PrivateDnsNameOptions.get('EnableIpDnsPtrRecord') is not None:
+			self.add_query_param('PrivateDnsNameOptions.EnableIpDnsPtrRecord', PrivateDnsNameOptions.get('EnableIpDnsPtrRecord'))
+		if PrivateDnsNameOptions.get('HostnameType') is not None:
+			self.add_query_param('PrivateDnsNameOptions.HostnameType', PrivateDnsNameOptions.get('HostnameType'))
 	def get_InstanceType(self): # String
 		return self.get_query_params().get('InstanceType')
 
@@ -301,6 +315,11 @@ class RunInstancesRequest(RpcRequest):
 
 	def set_SpotPriceLimit(self, SpotPriceLimit):  # Float
 		self.add_query_param('SpotPriceLimit', SpotPriceLimit)
+	def get_CpuOptionsTopologyType(self): # String
+		return self.get_query_params().get('CpuOptions.TopologyType')
+
+	def set_CpuOptionsTopologyType(self, CpuOptionsTopologyType):  # String
+		self.add_query_param('CpuOptions.TopologyType', CpuOptionsTopologyType)
 	def get_StorageSetPartitionNumber(self): # Integer
 		return self.get_query_params().get('StorageSetPartitionNumber')
 
@@ -450,6 +469,16 @@ class RunInstancesRequest(RpcRequest):
 					self.add_query_param('NetworkInterface.' + str(depth1 + 1) + '.Ipv6Address.' + str(depth2 + 1), NetworkInterface[depth1].get('Ipv6Address')[depth2])
 			if NetworkInterface[depth1].get('NetworkCardIndex') is not None:
 				self.add_query_param('NetworkInterface.' + str(depth1 + 1) + '.NetworkCardIndex', NetworkInterface[depth1].get('NetworkCardIndex'))
+			if NetworkInterface[depth1].get('DeleteOnRelease') is not None:
+				self.add_query_param('NetworkInterface.' + str(depth1 + 1) + '.DeleteOnRelease', NetworkInterface[depth1].get('DeleteOnRelease'))
+			if NetworkInterface[depth1].get('NetworkInterfaceId') is not None:
+				self.add_query_param('NetworkInterface.' + str(depth1 + 1) + '.NetworkInterfaceId', NetworkInterface[depth1].get('NetworkInterfaceId'))
+			if NetworkInterface[depth1].get('RxQueueSize') is not None:
+				self.add_query_param('NetworkInterface.' + str(depth1 + 1) + '.RxQueueSize', NetworkInterface[depth1].get('RxQueueSize'))
+			if NetworkInterface[depth1].get('TxQueueSize') is not None:
+				self.add_query_param('NetworkInterface.' + str(depth1 + 1) + '.TxQueueSize', NetworkInterface[depth1].get('TxQueueSize'))
+			if NetworkInterface[depth1].get('SourceDestCheck') is not None:
+				self.add_query_param('NetworkInterface.' + str(depth1 + 1) + '.SourceDestCheck', NetworkInterface[depth1].get('SourceDestCheck'))
 	def get_Amount(self): # Integer
 		return self.get_query_params().get('Amount')
 

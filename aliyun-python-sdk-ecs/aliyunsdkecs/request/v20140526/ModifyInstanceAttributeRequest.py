@@ -51,6 +51,11 @@ class ModifyInstanceAttributeRequest(RpcRequest):
 
 	def set_Description(self, Description):  # String
 		self.add_query_param('Description', Description)
+	def get_CpuOptionsThreadsPerCore(self): # Integer
+		return self.get_query_params().get('CpuOptions.ThreadsPerCore')
+
+	def set_CpuOptionsThreadsPerCore(self, CpuOptionsThreadsPerCore):  # Integer
+		self.add_query_param('CpuOptions.ThreadsPerCore', CpuOptionsThreadsPerCore)
 	def get_DeletionProtection(self): # Boolean
 		return self.get_query_params().get('DeletionProtection')
 
@@ -71,11 +76,35 @@ class ModifyInstanceAttributeRequest(RpcRequest):
 
 	def set_HostName(self, HostName):  # String
 		self.add_query_param('HostName', HostName)
+	def get_PrivateDnsNameOptions(self): # Struct
+		return self.get_query_params().get('PrivateDnsNameOptions')
+
+	def set_PrivateDnsNameOptions(self, PrivateDnsNameOptions):  # Struct
+		if PrivateDnsNameOptions.get('HostnameType') is not None:
+			self.add_query_param('PrivateDnsNameOptions.HostnameType', PrivateDnsNameOptions.get('HostnameType'))
+		if PrivateDnsNameOptions.get('EnableInstanceIdDnsARecord') is not None:
+			self.add_query_param('PrivateDnsNameOptions.EnableInstanceIdDnsARecord', PrivateDnsNameOptions.get('EnableInstanceIdDnsARecord'))
+		if PrivateDnsNameOptions.get('EnableInstanceIdDnsAAAARecord') is not None:
+			self.add_query_param('PrivateDnsNameOptions.EnableInstanceIdDnsAAAARecord', PrivateDnsNameOptions.get('EnableInstanceIdDnsAAAARecord'))
+		if PrivateDnsNameOptions.get('EnableIpDnsARecord') is not None:
+			self.add_query_param('PrivateDnsNameOptions.EnableIpDnsARecord', PrivateDnsNameOptions.get('EnableIpDnsARecord'))
+		if PrivateDnsNameOptions.get('EnableIpDnsPtrRecord') is not None:
+			self.add_query_param('PrivateDnsNameOptions.EnableIpDnsPtrRecord', PrivateDnsNameOptions.get('EnableIpDnsPtrRecord'))
+	def get_CpuOptionsTopologyType(self): # String
+		return self.get_query_params().get('CpuOptions.TopologyType')
+
+	def set_CpuOptionsTopologyType(self, CpuOptionsTopologyType):  # String
+		self.add_query_param('CpuOptions.TopologyType', CpuOptionsTopologyType)
 	def get_EnableJumboFrame(self): # Boolean
 		return self.get_query_params().get('EnableJumboFrame')
 
 	def set_EnableJumboFrame(self, EnableJumboFrame):  # Boolean
 		self.add_query_param('EnableJumboFrame', EnableJumboFrame)
+	def get_CpuOptionsCore(self): # Integer
+		return self.get_query_params().get('CpuOptions.Core')
+
+	def set_CpuOptionsCore(self, CpuOptionsCore):  # Integer
+		self.add_query_param('CpuOptions.Core', CpuOptionsCore)
 	def get_ResourceOwnerAccount(self): # String
 		return self.get_query_params().get('ResourceOwnerAccount')
 

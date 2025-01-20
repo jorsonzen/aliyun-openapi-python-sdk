@@ -130,6 +130,11 @@ class CreateDBClusterRequest(RpcRequest):
 
 	def set_DBMinorVersion(self, DBMinorVersion):  # String
 		self.add_query_param('DBMinorVersion', DBMinorVersion)
+	def get_ProvisionedIops(self): # Long
+		return self.get_query_params().get('ProvisionedIops')
+
+	def set_ProvisionedIops(self, ProvisionedIops):  # Long
+		self.add_query_param('ProvisionedIops', ProvisionedIops)
 	def get_AutoRenew(self): # Boolean
 		return self.get_query_params().get('AutoRenew')
 
@@ -170,6 +175,11 @@ class CreateDBClusterRequest(RpcRequest):
 
 	def set_LowerCaseTableNames(self, LowerCaseTableNames):  # String
 		self.add_query_param('LowerCaseTableNames', LowerCaseTableNames)
+	def get_StorageEncryption(self): # Boolean
+		return self.get_query_params().get('StorageEncryption')
+
+	def set_StorageEncryption(self, StorageEncryption):  # Boolean
+		self.add_query_param('StorageEncryption', StorageEncryption)
 	def get_ScaleRoNumMax(self): # String
 		return self.get_query_params().get('ScaleRoNumMax')
 
@@ -195,6 +205,11 @@ class CreateDBClusterRequest(RpcRequest):
 
 	def set_ClusterNetworkType(self, ClusterNetworkType):  # String
 		self.add_query_param('ClusterNetworkType', ClusterNetworkType)
+	def get_StorageEncryptionKey(self): # String
+		return self.get_query_params().get('StorageEncryptionKey')
+
+	def set_StorageEncryptionKey(self, StorageEncryptionKey):  # String
+		self.add_query_param('StorageEncryptionKey', StorageEncryptionKey)
 	def get_ParameterGroupId(self): # String
 		return self.get_query_params().get('ParameterGroupId')
 
@@ -240,6 +255,16 @@ class CreateDBClusterRequest(RpcRequest):
 
 	def set_UsedTime(self, UsedTime):  # String
 		self.add_query_param('UsedTime', UsedTime)
+	def get_BurstingEnabled(self): # String
+		return self.get_query_params().get('BurstingEnabled')
+
+	def set_BurstingEnabled(self, BurstingEnabled):  # String
+		self.add_query_param('BurstingEnabled', BurstingEnabled)
+	def get_TargetMinorVersion(self): # String
+		return self.get_query_params().get('TargetMinorVersion')
+
+	def set_TargetMinorVersion(self, TargetMinorVersion):  # String
+		self.add_query_param('TargetMinorVersion', TargetMinorVersion)
 	def get_DBNodeNum(self): # Integer
 		return self.get_query_params().get('DBNodeNum')
 

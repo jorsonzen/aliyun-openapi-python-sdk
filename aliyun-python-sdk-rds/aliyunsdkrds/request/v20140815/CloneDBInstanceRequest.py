@@ -24,7 +24,7 @@ import json
 class CloneDBInstanceRequest(RpcRequest):
 
 	def __init__(self):
-		RpcRequest.__init__(self, 'Rds', '2014-08-15', 'CloneDBInstance')
+		RpcRequest.__init__(self, 'Rds', '2014-08-15', 'CloneDBInstance','rds')
 		self.set_method('POST')
 
 		if hasattr(self, "endpoint_map"):
@@ -87,6 +87,11 @@ class CloneDBInstanceRequest(RpcRequest):
 
 	def set_InstanceNetworkType(self, InstanceNetworkType):  # String
 		self.add_query_param('InstanceNetworkType', InstanceNetworkType)
+	def get_ClientToken(self): # String
+		return self.get_query_params().get('ClientToken')
+
+	def set_ClientToken(self, ClientToken):  # String
+		self.add_query_param('ClientToken', ClientToken)
 	def get_ZoneIdSlave1(self): # String
 		return self.get_query_params().get('ZoneIdSlave1')
 
@@ -97,6 +102,11 @@ class CloneDBInstanceRequest(RpcRequest):
 
 	def set_ZoneIdSlave2(self, ZoneIdSlave2):  # String
 		self.add_query_param('ZoneIdSlave2', ZoneIdSlave2)
+	def get_IoAccelerationEnabled(self): # String
+		return self.get_query_params().get('IoAccelerationEnabled')
+
+	def set_IoAccelerationEnabled(self, IoAccelerationEnabled):  # String
+		self.add_query_param('IoAccelerationEnabled', IoAccelerationEnabled)
 	def get_TableMeta(self): # String
 		return self.get_query_params().get('TableMeta')
 

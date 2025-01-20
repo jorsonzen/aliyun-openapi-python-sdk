@@ -36,6 +36,11 @@ class AddMetaCollectionEntityRequest(RpcRequest):
 
 	def set_EntityQualifiedName(self, EntityQualifiedName):  # String
 		self.add_query_param('EntityQualifiedName', EntityQualifiedName)
+	def get_Remark(self): # String
+		return self.get_query_params().get('Remark')
+
+	def set_Remark(self, Remark):  # String
+		self.add_query_param('Remark', Remark)
 	def get_CollectionQualifiedName(self): # String
 		return self.get_query_params().get('CollectionQualifiedName')
 

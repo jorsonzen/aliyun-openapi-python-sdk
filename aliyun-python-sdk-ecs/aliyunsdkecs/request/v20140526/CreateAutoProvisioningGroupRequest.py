@@ -19,6 +19,7 @@
 
 from aliyunsdkcore.request import RpcRequest
 from aliyunsdkecs.endpoint import endpoint_data
+import json
 
 class CreateAutoProvisioningGroupRequest(RpcRequest):
 
@@ -56,6 +57,12 @@ class CreateAutoProvisioningGroupRequest(RpcRequest):
 				self.add_query_param('LaunchConfiguration.DataDisk.' + str(depth1 + 1) + '.DeleteWithInstance', LaunchConfigurationDataDisk[depth1].get('DeleteWithInstance'))
 			if LaunchConfigurationDataDisk[depth1].get('Encrypted') is not None:
 				self.add_query_param('LaunchConfiguration.DataDisk.' + str(depth1 + 1) + '.Encrypted', LaunchConfigurationDataDisk[depth1].get('Encrypted'))
+			if LaunchConfigurationDataDisk[depth1].get('EncryptAlgorithm') is not None:
+				self.add_query_param('LaunchConfiguration.DataDisk.' + str(depth1 + 1) + '.EncryptAlgorithm', LaunchConfigurationDataDisk[depth1].get('EncryptAlgorithm'))
+			if LaunchConfigurationDataDisk[depth1].get('ProvisionedIops') is not None:
+				self.add_query_param('LaunchConfiguration.DataDisk.' + str(depth1 + 1) + '.ProvisionedIops', LaunchConfigurationDataDisk[depth1].get('ProvisionedIops'))
+			if LaunchConfigurationDataDisk[depth1].get('BurstingEnabled') is not None:
+				self.add_query_param('LaunchConfiguration.DataDisk.' + str(depth1 + 1) + '.BurstingEnabled', LaunchConfigurationDataDisk[depth1].get('BurstingEnabled'))
 	def get_ResourceOwnerId(self): # Long
 		return self.get_query_params().get('ResourceOwnerId')
 
@@ -123,6 +130,15 @@ class CreateAutoProvisioningGroupRequest(RpcRequest):
 
 	def set_DefaultTargetCapacityType(self, DefaultTargetCapacityType):  # String
 		self.add_query_param('DefaultTargetCapacityType', DefaultTargetCapacityType)
+	def get_Tags(self): # RepeatList
+		return self.get_query_params().get('Tag')
+
+	def set_Tags(self, Tag):  # RepeatList
+		for depth1 in range(len(Tag)):
+			if Tag[depth1].get('Key') is not None:
+				self.add_query_param('Tag.' + str(depth1 + 1) + '.Key', Tag[depth1].get('Key'))
+			if Tag[depth1].get('Value') is not None:
+				self.add_query_param('Tag.' + str(depth1 + 1) + '.Value', Tag[depth1].get('Value'))
 	def get_LaunchConfigurationKeyPairName(self): # String
 		return self.get_query_params().get('LaunchConfiguration.KeyPairName')
 
@@ -157,6 +173,11 @@ class CreateAutoProvisioningGroupRequest(RpcRequest):
 
 	def set_OwnerId(self, OwnerId):  # Long
 		self.add_query_param('OwnerId', OwnerId)
+	def get_LaunchConfigurationImageFamily(self): # String
+		return self.get_query_params().get('LaunchConfiguration.ImageFamily')
+
+	def set_LaunchConfigurationImageFamily(self, LaunchConfigurationImageFamily):  # String
+		self.add_query_param('LaunchConfiguration.ImageFamily', LaunchConfigurationImageFamily)
 	def get_LaunchConfigurationSystemDiskSize(self): # Integer
 		return self.get_query_params().get('LaunchConfiguration.SystemDiskSize')
 
@@ -238,6 +259,10 @@ class CreateAutoProvisioningGroupRequest(RpcRequest):
 			self.add_query_param('LaunchConfiguration.SystemDisk.KMSKeyId', LaunchConfigurationSystemDisk.get('KMSKeyId'))
 		if LaunchConfigurationSystemDisk.get('EncryptAlgorithm') is not None:
 			self.add_query_param('LaunchConfiguration.SystemDisk.EncryptAlgorithm', LaunchConfigurationSystemDisk.get('EncryptAlgorithm'))
+		if LaunchConfigurationSystemDisk.get('ProvisionedIops') is not None:
+			self.add_query_param('LaunchConfiguration.SystemDisk.ProvisionedIops', LaunchConfigurationSystemDisk.get('ProvisionedIops'))
+		if LaunchConfigurationSystemDisk.get('BurstingEnabled') is not None:
+			self.add_query_param('LaunchConfiguration.SystemDisk.BurstingEnabled', LaunchConfigurationSystemDisk.get('BurstingEnabled'))
 	def get_LaunchConfigurationInstanceName(self): # String
 		return self.get_query_params().get('LaunchConfiguration.InstanceName')
 
@@ -253,6 +278,11 @@ class CreateAutoProvisioningGroupRequest(RpcRequest):
 
 	def set_SpotAllocationStrategy(self, SpotAllocationStrategy):  # String
 		self.add_query_param('SpotAllocationStrategy', SpotAllocationStrategy)
+	def get_ResourcePoolOptions(self): # Struct
+		return self.get_query_params().get('ResourcePoolOptions')
+
+	def set_ResourcePoolOptions(self, ResourcePoolOptions):  # Struct
+		self.add_query_param("ResourcePoolOptions", json.dumps(ResourcePoolOptions))
 	def get_TerminateInstances(self): # Boolean
 		return self.get_query_params().get('TerminateInstances')
 
@@ -310,6 +340,8 @@ class CreateAutoProvisioningGroupRequest(RpcRequest):
 				for depth2 in range(len(LaunchTemplateConfig[depth1].get('SecondaryNetworkInterface'))):
 					if LaunchTemplateConfig[depth1].get('SecondaryNetworkInterface')[depth2].get('VSwitchId') is not None:
 						self.add_query_param('LaunchTemplateConfig.' + str(depth1 + 1) + '.SecondaryNetworkInterface.'  + str(depth2 + 1) + '.VSwitchId', LaunchTemplateConfig[depth1].get('SecondaryNetworkInterface')[depth2].get('VSwitchId'))
+			if LaunchTemplateConfig[depth1].get('ImageId') is not None:
+				self.add_query_param('LaunchTemplateConfig.' + str(depth1 + 1) + '.ImageId', LaunchTemplateConfig[depth1].get('ImageId'))
 	def get_LaunchConfigurationRamRoleName(self): # String
 		return self.get_query_params().get('LaunchConfiguration.RamRoleName')
 

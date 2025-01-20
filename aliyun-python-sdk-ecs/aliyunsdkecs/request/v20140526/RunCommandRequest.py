@@ -106,6 +106,11 @@ class RunCommandRequest(RpcRequest):
 
 	def set_Parameters(self, Parameters):  # Json
 		self.add_query_param('Parameters', Parameters)
+	def get_Launcher(self): # String
+		return self.get_query_params().get('Launcher')
+
+	def set_Launcher(self, Launcher):  # String
+		self.add_query_param('Launcher', Launcher)
 	def get_ContainerName(self): # String
 		return self.get_query_params().get('ContainerName')
 
@@ -141,6 +146,15 @@ class RunCommandRequest(RpcRequest):
 
 	def set_WindowsPasswordName(self, WindowsPasswordName):  # String
 		self.add_query_param('WindowsPasswordName', WindowsPasswordName)
+	def get_ResourceTags(self): # RepeatList
+		return self.get_query_params().get('ResourceTag')
+
+	def set_ResourceTags(self, ResourceTag):  # RepeatList
+		for depth1 in range(len(ResourceTag)):
+			if ResourceTag[depth1].get('Key') is not None:
+				self.add_query_param('ResourceTag.' + str(depth1 + 1) + '.Key', ResourceTag[depth1].get('Key'))
+			if ResourceTag[depth1].get('Value') is not None:
+				self.add_query_param('ResourceTag.' + str(depth1 + 1) + '.Value', ResourceTag[depth1].get('Value'))
 	def get_ResourceOwnerAccount(self): # String
 		return self.get_query_params().get('ResourceOwnerAccount')
 
@@ -151,6 +165,11 @@ class RunCommandRequest(RpcRequest):
 
 	def set_OwnerAccount(self, OwnerAccount):  # String
 		self.add_query_param('OwnerAccount', OwnerAccount)
+	def get_TerminationMode(self): # String
+		return self.get_query_params().get('TerminationMode')
+
+	def set_TerminationMode(self, TerminationMode):  # String
+		self.add_query_param('TerminationMode', TerminationMode)
 	def get_EnableParameter(self): # Boolean
 		return self.get_query_params().get('EnableParameter')
 
